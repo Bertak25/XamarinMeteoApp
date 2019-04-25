@@ -4,15 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Diagnostics;
+
+using Plugin.Geolocator;
 
 namespace MeteoApp
 {
     public partial class MeteoListPage : ContentPage
     {
+        public Entry entry = new Entry();
         public MeteoListPage()
         {
             InitializeComponent();
-            BindingContext = new MeteoListViewModel();
+
+            GetLocation();
+            
+            BindingContext = new MeteoListViewModel(entry);
         }
 
         protected override void OnAppearing()
@@ -34,6 +41,16 @@ namespace MeteoApp
                     BindingContext = e.SelectedItem as Entry
                 });
             }
+        }
+
+        async void GetLocation()
+        {
+            var locator = CrossGeolocator.Current; // singleton
+            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+            entry.ID = 11;
+            entry.Name = "current";
+            entry.Latitude = position.Latitude;
+            entry.Longitude = position.Longitude;
         }
     }
 }

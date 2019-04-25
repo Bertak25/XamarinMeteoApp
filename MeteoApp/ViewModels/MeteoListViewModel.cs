@@ -17,16 +17,20 @@ namespace MeteoApp
             }
         }
 
-        public MeteoListViewModel()
+        public MeteoListViewModel(Entry current)
         {
             Entries = new ObservableCollection<Entry>();
+
+            Entries.Add(current);
 
             for (var i = 0; i < 10; i++)
             {
                 var e = new Entry
                 {
                     ID = i,
-                    Name = "Entry " + i
+                    Name = "Entry " + i,
+                    Latitude = 12,
+                    Longitude = 12
                 };
 
                 Entries.Add(e);
