@@ -48,7 +48,7 @@ namespace MeteoApp
             var locator = CrossGeolocator.Current; // singleton
             var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
             entry.ID = 11;
-            entry.Name = "current";
+            entry.Name = "Current";
             entry.Latitude = position.Latitude;
             entry.Longitude = position.Longitude;
         }
