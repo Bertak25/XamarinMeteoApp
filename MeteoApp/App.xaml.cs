@@ -1,12 +1,26 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MeteoApp.DatabaseManager;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MeteoApp
 {
     public partial class App : Application
     {
+        private static Database databaseManager;
+
+        internal static Database DatabaseManager
+        {
+            get
+            {
+                if (databaseManager == null)
+                    databaseManager = new Database();
+
+                return databaseManager;
+            }
+        }
+
         public App()
         {
             InitializeComponent();
@@ -19,6 +33,15 @@ namespace MeteoApp
 
             MainPage = nav;
         }
+
+
+
+        //public static Database 
+        //{
+        //    if (databaseManager == null)
+        //        databaseManager = new Database();
+        //    return databaseManager;
+        //}
 
         protected override void OnStart()
         {
