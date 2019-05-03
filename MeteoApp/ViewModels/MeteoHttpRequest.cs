@@ -1,24 +1,16 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Net;
-using Android.Widget;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MeteoApp
+namespace MeteoApp.ViewModels
 {
-    public partial class MeteoItemPage : ContentPage
+    class MeteoHttpRequest
     {
-        public MeteoItemPage(Entry entry)
-        {
-            InitializeComponent();
-
-            GetWeatherAsync(entry);
-            
-        }
-
-        private async Task GetWeatherAsync(Entry entry)
+        public static async Task GetWeatherAsync(Entry entry)
         {
             var httpClient = new HttpClient();
             var builder = new UriBuilder("https://api.openweathermap.org/data/2.5/weather?");

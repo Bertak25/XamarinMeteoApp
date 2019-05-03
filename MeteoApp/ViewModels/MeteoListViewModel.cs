@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeteoApp.ViewModels;
+using System;
 using System.Collections.ObjectModel;
 
 namespace MeteoApp
@@ -22,7 +23,7 @@ namespace MeteoApp
             Entries = new ObservableCollection<Entry>();
 
             Entries.Add(current);
-
+            MeteoHttpRequest.GetWeatherAsync(current);
             for (var i = 0; i < 10; i++)
             {
                 var e = new Entry
@@ -32,7 +33,7 @@ namespace MeteoApp
                     Latitude = 12,
                     Longitude = 12
                 };
-
+                MeteoHttpRequest.GetWeatherAsync(e);
                 Entries.Add(e);
             }
         }
