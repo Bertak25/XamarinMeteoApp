@@ -4,7 +4,6 @@ using Xamarin.Forms;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Net;
-using Android.Widget;
 
 namespace MeteoApp
 {
@@ -13,9 +12,18 @@ namespace MeteoApp
         public MeteoItemPage(Entry entry)
         {
             InitializeComponent();
-
-            GetWeatherAsync(entry);
+            BindingContext = entry;
+           // GetWeatherAsync(entry);
             
+        }
+
+        public async static Task<MeteoItemPage> createMeteoItemPage(Entry entry)
+        {
+            MeteoItemPage page = new MeteoItemPage(entry);
+            await page.GetWeatherAsync(entry);
+
+
+            return page;
         }
 
         private async Task GetWeatherAsync(Entry entry)

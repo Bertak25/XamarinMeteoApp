@@ -39,7 +39,7 @@ namespace MeteoApp
             //}
 
             //List<Entry> cities = new DatabaseManager.Database().GetAllCities().Result;
-            MeteoHttpRequest.GetWeatherAsync(current);
+            MeteoHttpRequest.GetWeatherAsync(currentPosition);
 
             List<Entry> cities = App.DatabaseManager.GetAllCities().Result;
 

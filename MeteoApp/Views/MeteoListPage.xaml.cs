@@ -14,7 +14,10 @@ namespace MeteoApp
 {
     public partial class MeteoListPage : ContentPage
     {
-        public Entry entry = new Entry();
+        public Entry entry = new Entry
+        {
+            Name = "Your position"
+        };
 
         public MeteoListPage()
         {
@@ -73,10 +76,19 @@ namespace MeteoApp
         {
             if (e.SelectedItem != null)
             {
-                Navigation.PushAsync(new MeteoItemPage(e.SelectedItem as Entry)
-                {
-                    BindingContext = e.SelectedItem as Entry
-                });
+                //Navigation.PushAsync(new MeteoItemPage(e.SelectedItem as Entry)
+                //{
+                //    BindingContext = e.SelectedItem as Entry
+                //});
+
+                MeteoItemPage page = MeteoItemPage.createMeteoItemPage(e.SelectedItem as Entry).Result;
+
+                Navigation.PushAsync(page);
+
+                //Navigation.PushAsync(MeteoItemPage.createMeteoItemPage(e.SelectedItem as Entry).Result
+                //{
+                //    BindingContext = e.SelectedItem as Entry
+                //});
             }
         }
 
