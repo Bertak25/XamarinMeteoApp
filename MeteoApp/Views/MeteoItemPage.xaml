@@ -2,6 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeteoApp.MeteoItemPage">
     <ContentPage.Content>
         <RelativeLayout x:Name="container">
+            <Label Text="{Binding Name}" Font="Bold, 30" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=-100}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=-300}"
+            ></Label>
+            <Label Text="{Binding Temp}" Font="Bold, 20" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=-33}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=-200}"
+            ></Label>
             <Label Text="{Binding Weather}" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
@@ -14,30 +38,54 @@
                         Factor=0.5,
                         Constant=-25}"
             ></Label>
-            <!--<Label Text="{Binding Latitude}" RelativeLayout.XConstraint="{ConstraintExpression 
+            <Label Text="Latitude:" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
                         Factor=0.5,
-                        Constant=-25}"
+                        Constant=-150}"
                    RelativeLayout.YConstraint=
                 "{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Height,
                         Factor=0.5,
-                        Constant=-25}"
-            ></Label>
+                        Constant=300}">
+            </Label>
+            <Label Text="{Binding Latitude}" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=-85}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=300}">
+            </Label>
+            <Label Text="Longitude:" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=25}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=300}">
+            </Label>
             <Label Text="{Binding Longitude}" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
                         Factor=0.5,
-                        Constant=-25}"
+                        Constant=103}"
                    RelativeLayout.YConstraint=
                 "{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Height,
                         Factor=0.5,
-                        Constant=-25}"
-            ></Label>-->
+                        Constant=300}">
+            </Label>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
