@@ -73,7 +73,7 @@ namespace MeteoApp
         {
             if (e.SelectedItem != null)
             {
-                Navigation.PushAsync(new MeteoItemPage()
+                Navigation.PushAsync(new MeteoItemPage(e.SelectedItem as Entry)
                 {
                     BindingContext = e.SelectedItem as Entry
                 });

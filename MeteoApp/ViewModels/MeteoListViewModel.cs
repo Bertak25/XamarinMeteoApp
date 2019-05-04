@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeteoApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -38,6 +39,7 @@ namespace MeteoApp
             //}
 
             //List<Entry> cities = new DatabaseManager.Database().GetAllCities().Result;
+            MeteoHttpRequest.GetWeatherAsync(current);
 
             List<Entry> cities = App.DatabaseManager.GetAllCities().Result;
 

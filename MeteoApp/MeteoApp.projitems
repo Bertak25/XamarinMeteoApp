@@ -22,9 +22,11 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DatabaseManager\Database.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entry.cs" />
+
     <Compile Include="$(MSBuildThisFileDirectory)Views\InsertCity.xaml.cs">
       <DependentUpon>InsertCity.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MeteoHttpRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MeteoListPage.xaml.cs">
       <DependentUpon>MeteoListPage.xaml</DependentUpon>
     </Compile>
@@ -38,6 +40,7 @@
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)DatabaseManager\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\InsertCity.xaml">
