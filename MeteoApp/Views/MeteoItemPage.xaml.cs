@@ -12,18 +12,8 @@ namespace MeteoApp
         public MeteoItemPage(Entry entry)
         {
             InitializeComponent();
-            BindingContext = entry;
-           // GetWeatherAsync(entry);
+            GetWeatherAsync(entry);
             
-        }
-
-        public async static Task<MeteoItemPage> createMeteoItemPage(Entry entry)
-        {
-            MeteoItemPage page = new MeteoItemPage(entry);
-            await page.GetWeatherAsync(entry);
-
-
-            return page;
         }
 
         private async Task GetWeatherAsync(Entry entry)

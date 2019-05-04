@@ -34,15 +34,6 @@ namespace MeteoApp
             MainPage = nav;
         }
 
-
-
-        //public static Database 
-        //{
-        //    if (databaseManager == null)
-        //        databaseManager = new Database();
-        //    return databaseManager;
-        //}
-
         protected override void OnStart()
         {
             // Handle when your app starts
