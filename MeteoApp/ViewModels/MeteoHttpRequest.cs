@@ -15,11 +15,23 @@ namespace MeteoApp.ViewModels
             var httpClient = new HttpClient();
             var builder = new UriBuilder("https://api.openweathermap.org/data/2.5/weather?");
             builder.Port = -1;
-            string postString = String.Format("lat={0}&lon={1}&units={2}&APPID={3}",
-            WebUtility.UrlEncode(entry.Latitude.ToString()),
-            WebUtility.UrlEncode(entry.Longitude.ToString()),
-            WebUtility.UrlEncode("metric"),
-            WebUtility.UrlEncode("d9927f346fc26a1925e207acf647f307"));
+            string postString;
+            if (entry.Name == "Your position")
+            {
+                postString = String.Format("lat={0}&lon={1}&units={2}&APPID={3}",
+                WebUtility.UrlEncode(entry.Latitude.ToString()),
+                WebUtility.UrlEncode(entry.Longitude.ToString()),
+                WebUtility.UrlEncode("metric"),
+                WebUtility.UrlEncode("d9927f346fc26a1925e207acf647f307"));
+            }
+            else
+            {
+                postString = String.Format("q={0}&units={1}&APPID={2}",
+                WebUtility.UrlEncode(entry.Name),
+                WebUtility.UrlEncode("metric"),
+                WebUtility.UrlEncode("d9927f346fc26a1925e207acf647f307"));
+            }
+
             string url = builder.ToString() + postString;
 
             var content = await httpClient.GetStringAsync(url);

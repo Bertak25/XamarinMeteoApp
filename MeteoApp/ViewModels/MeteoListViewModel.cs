@@ -23,6 +23,7 @@ namespace MeteoApp
         {
             Entries = new ObservableCollection<Entry>();
 
+            MeteoHttpRequest.GetWeatherAsync(currentPosition);
             Entries.Add(currentPosition);
 
             //for (var i = 0; i < 10; i++)
@@ -39,12 +40,14 @@ namespace MeteoApp
             //}
 
             //List<Entry> cities = new DatabaseManager.Database().GetAllCities().Result;
-            MeteoHttpRequest.GetWeatherAsync(currentPosition);
 
             List<Entry> cities = App.DatabaseManager.GetAllCities().Result;
 
             foreach (Entry e in cities)
+            {
+                MeteoHttpRequest.GetWeatherAsync(e);
                 Entries.Add(e);
+            }
         }
     }
 }
