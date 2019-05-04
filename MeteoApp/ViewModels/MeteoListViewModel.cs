@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace MeteoApp
@@ -17,24 +18,31 @@ namespace MeteoApp
             }
         }
 
-        public MeteoListViewModel(Entry current)
+        public MeteoListViewModel(Entry currentPosition)
         {
             Entries = new ObservableCollection<Entry>();
 
-            Entries.Add(current);
+            Entries.Add(currentPosition);
 
-            for (var i = 0; i < 10; i++)
-            {
-                var e = new Entry
-                {
-                    ID = i,
-                    Name = "Entry " + i,
-                    Latitude = 12,
-                    Longitude = 12
-                };
+            //for (var i = 0; i < 10; i++)
+            //{
+            //    var e = new Entry
+            //    {
+            //        ID = i,
+            //        Name = "Entry " + i,
+            //        Latitude = 12,
+            //        Longitude = 12
+            //    };
 
+            //    Entries.Add(e);
+            //}
+
+            //List<Entry> cities = new DatabaseManager.Database().GetAllCities().Result;
+
+            List<Entry> cities = App.DatabaseManager.GetAllCities().Result;
+
+            foreach (Entry e in cities)
                 Entries.Add(e);
-            }
         }
     }
 }

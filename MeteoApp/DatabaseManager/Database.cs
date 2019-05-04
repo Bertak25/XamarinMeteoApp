@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MeteoApp.DatabaseManager
 {
-    class Database
+    public class Database
     {
         private readonly SQLiteAsyncConnection database;
 

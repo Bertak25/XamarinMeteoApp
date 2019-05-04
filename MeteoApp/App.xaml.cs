@@ -8,9 +8,9 @@ namespace MeteoApp
 {
     public partial class App : Application
     {
-        private static Database databaseManager;
+        static Database databaseManager;
 
-        internal static Database DatabaseManager
+        public static Database DatabaseManager
         {
             get
             {
