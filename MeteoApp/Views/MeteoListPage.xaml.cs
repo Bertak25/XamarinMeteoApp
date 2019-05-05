@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using System.Diagnostics;
 using MeteoApp.Views;
 using Acr.UserDialogs;
+using Plugin.Geolocator;
 
 //using Plugin.Geolocator;
 
@@ -23,7 +24,7 @@ namespace MeteoApp
         {
             InitializeComponent();
 
-            //GetLocation();
+            GetLocation();
             
             BindingContext = new MeteoListViewModel(entry);
 
@@ -84,14 +85,13 @@ namespace MeteoApp
             }
         }
 
-        //async void GetLocation()
-        //{
-        //    var locator = CrossGeolocator.Current; // singleton
-        //    var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
-        //    entry.ID = 11;
-        //    entry.Name = "Current";
-        //    entry.Latitude = position.Latitude;
-        //    entry.Longitude = position.Longitude;
-        //}
+        async void GetLocation()
+        {
+            var locator = CrossGeolocator.Current; // singleton
+            var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(10));
+            entry.ID = 11;
+            entry.Latitude = position.Latitude;
+            entry.Longitude = position.Longitude;
+        }
     }
 }
