@@ -2,19 +2,44 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MeteoApp.MeteoItemPage">
     <ContentPage.Content>
         <RelativeLayout x:Name="container">
-            <Label Text="{Binding Weather}" RelativeLayout.XConstraint="{ConstraintExpression 
+            <Label Text="{Binding Name}" Font="Bold, 30" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
                         Factor=0.5,
-                        Constant=-25}"
+                        Constant=-150}"
                    RelativeLayout.YConstraint=
                 "{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Height,
                         Factor=0.5,
-                        Constant=-25}"
+                        Constant=-300}"
             ></Label>
-            <!--<Label Text="{Binding Latitude}" RelativeLayout.XConstraint="{ConstraintExpression 
+            <Label Text="Temp:" Font="Bold, 20" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=-150}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=-200}">
+            </Label>
+            <Label Text="{Binding Temp}" Font="Bold, 20" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=-33}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=-200}">
+            </Label>
+            <Image Source="{Binding IconURL}" 
+                   ScaleX="7" ScaleY="7" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
                         Factor=0.5,
@@ -24,20 +49,67 @@
                         Type=RelativeToParent,
                         Property=Height,
                         Factor=0.5,
+                        Constant=-25}"></Image>
+            <Label Text="{Binding Weather}" Font="MarkerFelt-Thin, 20" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
                         Constant=-25}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=100}"
             ></Label>
-            <Label Text="{Binding Longitude}" RelativeLayout.XConstraint="{ConstraintExpression 
+            <Label Text="Min:" RelativeLayout.XConstraint="{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Width, 
                         Factor=0.5,
-                        Constant=-25}"
+                        Constant=-150}"
                    RelativeLayout.YConstraint=
                 "{ConstraintExpression 
                         Type=RelativeToParent,
                         Property=Height,
                         Factor=0.5,
-                        Constant=-25}"
-            ></Label>-->
+                        Constant=300}">
+            </Label>
+            <Label Text="{Binding TempMin}" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=-114}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=300}">
+            </Label>
+            <Label Text="Max:" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=25}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=300}">
+            </Label>
+            <Label Text="{Binding TempMax}" RelativeLayout.XConstraint="{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Width, 
+                        Factor=0.5,
+                        Constant=65}"
+                   RelativeLayout.YConstraint=
+                "{ConstraintExpression 
+                        Type=RelativeToParent,
+                        Property=Height,
+                        Factor=0.5,
+                        Constant=300}">
+            </Label>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

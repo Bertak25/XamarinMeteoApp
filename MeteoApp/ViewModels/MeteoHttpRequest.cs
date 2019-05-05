@@ -37,7 +37,7 @@ namespace MeteoApp.ViewModels
             var content = await httpClient.GetStringAsync(url);
 
             entry.Weather = (string)JObject.Parse(content)["weather"][0]["main"];
-            entry.Icon = (string)JObject.Parse(content)["weather"][0]["icon"];
+            entry.IconURL = "http://openweathermap.org/img/w/"+(string)JObject.Parse(content)["weather"][0]["icon"]+".png";
             entry.Temp = (double)JObject.Parse(content)["main"]["temp"];
             entry.Humidity = (double)JObject.Parse(content)["main"]["humidity"];
             entry.TempMin = (double)JObject.Parse(content)["main"]["temp_min"];
