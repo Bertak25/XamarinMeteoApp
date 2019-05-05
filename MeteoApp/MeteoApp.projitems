@@ -22,7 +22,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DatabaseManager\Database.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Entry.cs" />
-
     <Compile Include="$(MSBuildThisFileDirectory)Views\InsertCity.xaml.cs">
       <DependentUpon>InsertCity.xaml</DependentUpon>
     </Compile>
@@ -46,7 +45,5 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\InsertCity.xaml">
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
 </Project>
