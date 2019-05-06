@@ -23,14 +23,11 @@ namespace MeteoApp.DatabaseManager
 
         public Task<List<Entry>> GetAllCities()
         {
-            return database.QueryAsync<Entry>("SELECT * FROM [Entry]");
+            return database.QueryAsync<Entry>("SELECT * FROM [Entry] order by [Name];");
         }
 
         public Task<int> SaveCity(Entry city)
         {
-            //if (city.ID == 0)
-            //    return database.UpdateAsync(city);
-
             return database.InsertAsync(city);
         }
     }

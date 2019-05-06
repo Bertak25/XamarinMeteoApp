@@ -11,20 +11,21 @@ using Plugin.FirebasePushNotification;
 
 namespace MeteoApp.Droid
 {
-    [Activity(Label = "MeteoApp", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "MeteoApp", Icon = "@drawable/therockicon", RoundIcon = "@drawable/therockicon_rounded", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, savedInstanceState);
             UserDialogs.Init(this);
+            FirebasePushNotificationManager.ProcessIntent(this, Intent);
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            FirebasePushNotificationManager.ProcessIntent(this, Intent);
+            
             LoadApplication(new App());
             
         }

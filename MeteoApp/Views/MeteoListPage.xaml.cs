@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Diagnostics;
-using MeteoApp.Views;
 using Acr.UserDialogs;
 using Plugin.Geolocator;
 
@@ -38,14 +33,6 @@ namespace MeteoApp
         
         private async void OnItemAdded(object sender, EventArgs e)
         {
-            //DisplayAlert("Messaggio", "Testo", "OK");
-            //DisplayAlert(await InputBox(this.Navigation).Result, "test", "ok");
-
-            // string result = await InputBox(this.Navigation);
-
-
-            //await PopupNavigation.PushAsync(new InsertCity());
-
             var pResult = await UserDialogs.Instance.PromptAsync(new PromptConfig
             {
                 InputType = InputType.Name,
@@ -56,7 +43,6 @@ namespace MeteoApp
 
             if (pResult.Ok && !string.IsNullOrWhiteSpace(pResult.Text))
             {
-                //await DisplayAlert("CIAO", "test", "ok");
                 await App.DatabaseManager.SaveCity(new Entry {
                     Name = pResult.Text,
                     //ID = 0,
